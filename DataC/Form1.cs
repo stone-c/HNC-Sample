@@ -90,7 +90,7 @@ namespace DataC
             //chart3.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
             //chart3.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
             chart3.ChartAreas[0].BackColor = Color.FromArgb(255, 0, 144, 208);
-            this.chart3.ChartAreas[0].AxisY.Maximum = 10000.0 * 0.1;
+            this.chart3.ChartAreas[0].AxisY.Maximum = 100.0 * 0.1;
             this.chart3.ChartAreas[0].AxisY.Minimum = -100.0 * 0.1;
 
             //chart1.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
@@ -124,7 +124,7 @@ namespace DataC
             #endregion
 
             HNC_Connect.thread_connect();
-            //Upload.buildsocket();
+
             T_message_send();
 
         }
@@ -269,6 +269,7 @@ namespace DataC
                     S3.Color = Color.FromArgb(255, 255, 255, 0);
 
                     chart3.Series.Add(S3);
+
                     if (max_i >= 0)
                     {
                         chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
@@ -369,6 +370,11 @@ namespace DataC
                 S1.Color = Color.FromArgb(255, 255, 255, 0);
                 S2.Color = Color.FromArgb(255, 255, 255, 0);
 
+                int max_v = v_temp.Max();
+                int max_s = s_temp.Max();
+                int min_v = v_temp.Min();
+                int min_s = s_temp.Min();
+
                 for (int k2=0;k2<1000;k2++)
                 {
                     S1.Points.AddXY(k2, s_temp[k2]);
@@ -384,6 +390,42 @@ namespace DataC
 
                 chart1.Series.Add(S1);
                 chart2.Series.Add(S2);
+
+
+                if (max_v >= 0)
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                }
+                else
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                }
+                if (min_v >= 0)
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                }
+                else
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                }
+
+                if (max_s >= 0)
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                }
+                else
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                }
+                if (min_s >= 0)
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                }
+                else
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                }
+
 
                 //if (counter <= 4)
                 //{
