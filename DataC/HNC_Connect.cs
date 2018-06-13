@@ -78,7 +78,6 @@ namespace DataC
         public static Int16[] value_s;
 
         public static List<byte>[] temp2 = new List<byte>[4];
-        //public static List<byte>[] datatemp = new List<byte>[4];
         private static List<Int16> value_v1 = new List<short>();
         private static List<Int16> value_s1 = new List<short>();
 
@@ -344,7 +343,7 @@ namespace DataC
 
                 int listc = series_X.Length;
 
-                #region i,v,s等int数据转byte[]
+                #region i,v,s等数据转换
 
                 int comp = listc / 4;
 

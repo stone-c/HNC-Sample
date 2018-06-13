@@ -18,8 +18,6 @@ namespace DataC
 {
     class Upload
     {
-
-        //public static string localip = null;
         private static Socket socket;
 
         //public Upload()
