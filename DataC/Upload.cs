@@ -18,7 +18,7 @@ namespace DataC
 {
     class Upload
     {
-        private static Socket socket;
+        public static Socket socket;
 
         //public Upload()
         //{

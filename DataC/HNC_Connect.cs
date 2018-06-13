@@ -55,7 +55,7 @@ namespace DataC
 
         //public static byte[,] xyzc = new byte[4, 16];
 
-        public static string gcode_path = "E:\\NCVM\\Resource\\";
+        public static string gcode_path = "D:\\NCVM\\Resource\\";
 
         public static bool start_transfer = false;
         public static bool progch_event = false;
@@ -74,8 +74,8 @@ namespace DataC
         public static Mutex getdata = new Mutex();
 
         public static int[] axisi;
-        public static Int16[] value_v;
-        public static Int16[] value_s;
+        //public static Int16[] value_v;
+        //public static Int16[] value_s;
 
         public static List<byte>[] temp2 = new List<byte>[4];
         private static List<Int16> value_v1 = new List<short>();
@@ -396,11 +396,14 @@ namespace DataC
                     for (int m = 0; m < v_len / 4; m++)
                     {
                         int temp = tmp[m + 5].Last<Int32>();
+                        int temp_2 = tmp[m + 5].Last<Int32>();
                         tmp[m + 5].RemoveAt(tmp[m + 5].Count - 1);
 
                         Int16 hdata = (Int16)(temp >> 16);
-                        Int16 ldata = (Int16)((temp << 16) >> 16);
+                        Int16 ldata = (Int16)((temp_2 << 16) >> 16);
 
+                        //v_que.Enqueue(ldata);
+                        //v_que.Enqueue(hdata);
                         v_que.Enqueue(hdata);
                         v_que.Enqueue(ldata);
                     }
@@ -474,12 +477,14 @@ namespace DataC
                     }
 
                 }
+
+                int a2 = v_que.Count;
               
-                if (i_que.Count > 10000)
+                if (i_que.Count > 1000)
                     i_que.Clear();
-                if (v_que.Count > 100000)
+                if (v_que.Count > 10000)
                     v_que.Clear();
-                if (s_que.Count > 100000)
+                if (s_que.Count > 10000)
                     s_que.Clear();
                 //for (int j = 0; j < listc; j++)
                 //{
@@ -525,8 +530,8 @@ namespace DataC
                 //    }
                 //}
 
-                value_v = value_v1.ToArray();
-                value_s = value_s1.ToArray();
+                //value_v = value_v1.ToArray();
+                //value_s = value_s1.ToArray();
 
                 #endregion
 
