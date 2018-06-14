@@ -274,22 +274,22 @@ namespace DataC
 
                     chart3.Series.Add(S3);
 
-                    if (max_i >= 0)
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
-                    }
-                    else
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
-                    }
-                    if (min_i >= 0)
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
-                    }
-                    else
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
-                    }
+                    //if (max_i >= 0)
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
+                    //}
+                    //else
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
+                    //}
+                    //if (min_i >= 0)
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
+                    //}
+                    //else
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
+                    //}
                     //chart3.ChartAreas[0].AxisY.Minimum = 10;
                     //chart3.ChartAreas[0].AxisY.Maximum = 10;
                     //chart3.ChartAreas[0].AxisY.Maximum = axis_i.Max() * 1.2;
@@ -396,39 +396,39 @@ namespace DataC
                 chart2.Series.Add(S2);
 
 
-                if (max_v >= 0)
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
-                }
-                else
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
-                }
-                if (min_v >= 0)
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
-                }
-                else
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
-                }
+                //if (max_v >= 0)
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                //}
+                //else
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                //}
+                //if (min_v >= 0)
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                //}
+                //else
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                //}
 
-                if (max_s >= 0)
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
-                }
-                else
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
-                }
-                if (min_s >= 0)
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
-                }
-                else
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
-                }
+                //if (max_s >= 0)
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                //}
+                //else
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                //}
+                //if (min_s >= 0)
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                //}
+                //else
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                //}
 
 
                 //if (counter <= 4)
@@ -540,8 +540,10 @@ namespace DataC
                     for (int p = 0; p < 50; p++)
                     {
                         i_temp[p] = HNC_Connect.i_que.Dequeue();
+                        //int i1=HNC_Connect.i_que.Dequeue();
+                        //i_temp[p] = 2200;
 
-                        for(int p1 = 0; p1 < 20; p1++)
+                        for (int p1 = 0; p1 < 20; p1++)
                         {
                             v_temp[p * 20 + p1] = HNC_Connect.v_que.Dequeue();
                             s_temp[p * 20 + p1] = HNC_Connect.s_que.Dequeue();

@@ -32,7 +32,7 @@ namespace DataC
         public static float pos_Z = 0;
         public static float pos_C = 0;
 
-        public static double drive_cur = 0.0;
+        public static double drive_cur = 15.0;
         public static double speed_F = 0.0;
         public static double speed_S = 0.0;
 
@@ -220,6 +220,8 @@ namespace DataC
                 //Api.HNC_ChannelGetValue(9, 10, 0, ref F_OVERRIDE);      // 进给修调
                 //Api.HNC_ChannelGetValue(49, 11, 0, ref S_OVERRIDE);     // 主轴修调
 
+                Api.HNC_AxisGetValue((Int32)HncAxis.HNC_AXIS_DRIVE_CUR, 0, ref drive_cur);
+
                 Api.HNC_ChannelGetValue(18, 0, 0, ref cyc);            // 循环启动
                 Api.HNC_ChannelGetValue(32, 0, 0, ref gline);          // G代码行号
                 Api.HNC_ChannelGetValue(47, 0, 0, ref speed_S);        // 主轴转速
@@ -228,7 +230,7 @@ namespace DataC
                 Api.HNC_ChannelGetValue(49, 0, 0, ref S_OVERRIDE);     // 主轴修调
                 Api.HNC_ChannelGetValue(50, 0, 0, ref R_OVERRIDE);     // 快移调修
                 Api.HNC_ChannelGetValue(25, 0, 0, ref estop);          // 急停
-                Api.HNC_AxisGetValue((Int32)HncAxis.HNC_AXIS_DRIVE_CUR, 0, ref drive_cur);
+                //Api.HNC_AxisGetValue((Int32)HncAxis.HNC_AXIS_DRIVE_CUR, 5, ref drive_cur);
 
                 #region 接口数据转换
 
@@ -664,7 +666,7 @@ namespace DataC
             Api.HNC_SamplSetChannel(2, (Int32)HncSampleType.SAMPL_CMD_POS, 1, 0, 0);           // Y指令位置
             Api.HNC_SamplSetChannel(3, (Int32)HncSampleType.SAMPL_CMD_POS, 2, 0, 0);           // Z指令位置
             Api.HNC_SamplSetChannel(4, (Int32)HncSampleType.SAMPL_CMD_POS, 5, 0, 0);          // C指令位置
-            Api.HNC_SamplSetChannel(5, (Int32)HncSampleType.SAMPL_ACT_TRQ, 0, 0, 0);          // I主轴电流
+            Api.HNC_SamplSetChannel(5, (Int32)HncSampleType.SAMPL_ACT_TRQ, 5, 0, 0);          // I主轴电流
         }
 
         public static bool smplon()

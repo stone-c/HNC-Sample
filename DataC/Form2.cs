@@ -130,14 +130,23 @@ namespace DataC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!Upload.socket.Connected)
+            if (!Upload.socketconnect())
             {
-                button2.Text = "断开";
-                Upload.buildsocket();
+                //button2.Text = "断开";
+                try
+                {
+                    Upload.buildsocket();
+                    button2.Text = "断  开";
+                }
+                catch(Exception ex6)
+                {
+                    //Upload.socket.r
+                }
+                //button2.Text = "断  开";
             }
             else
             {
-                button2.Text = "连接";
+                button2.Text = "连  接";
                 Upload.socket.Disconnect(true);
             }
         }

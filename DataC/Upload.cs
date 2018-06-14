@@ -37,30 +37,7 @@ namespace DataC
                 //判断是否为以太网卡
                 //Wireless80211         无线网卡    Ppp     宽带连接
                 //Ethernet              以太网卡   
-                if (adapter.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
-                {
-                    //获取以太网卡网络接口信息
-                    IPInterfaceProperties ip = adapter.GetIPProperties();
-                    //获取单播地址集
-                    UnicastIPAddressInformationCollection ipCollection = ip.UnicastAddresses;
-                    foreach (UnicastIPAddressInformation ipadd in ipCollection)
-                    {
-                        //InterNetwork    IPV4地址      InterNetworkV6        IPV6地址
-                        //Max            MAX 位址
-                        if (ipadd.Address.AddressFamily == AddressFamily.InterNetwork)
-                        {
-                            //判断是否为ipv4
-                            ethip = ipadd.Address.ToString();
-                            //Console.WriteLine(ethip);
-                            if (ethip.StartsWith("10"))
-                            {
-                                return ethip;
-                            }
-                            //return ethip;
-                        }
-                    }
-                }
-                //if (adapter.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                //if (adapter.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
                 //{
                 //    //获取以太网卡网络接口信息
                 //    IPInterfaceProperties ip = adapter.GetIPProperties();
@@ -74,20 +51,52 @@ namespace DataC
                 //        {
                 //            //判断是否为ipv4
                 //            ethip = ipadd.Address.ToString();
-                //            Console.WriteLine(ethip);
-                //            if (ethip.StartsWith("218"))
+                //            //Console.WriteLine(ethip);
+                //            if (ethip.StartsWith("10"))
                 //            {
                 //                return ethip;
                 //            }
+                //            //return ethip;
                 //        }
                 //    }
                 //}
+                if (adapter.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                {
+                    //获取以太网卡网络接口信息
+                    IPInterfaceProperties ip = adapter.GetIPProperties();
+                    //获取单播地址集
+                    UnicastIPAddressInformationCollection ipCollection = ip.UnicastAddresses;
+                    foreach (UnicastIPAddressInformation ipadd in ipCollection)
+                    {
+                        //InterNetwork    IPV4地址      InterNetworkV6        IPV6地址
+                        //Max            MAX 位址
+                        if (ipadd.Address.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            //判断是否为ipv4
+                            ethip = ipadd.Address.ToString();
+                            Console.WriteLine(ethip);
+                            if (ethip.StartsWith("218"))
+                            {
+                                return ethip;
+                            }
+                        }
+                    }
+                }
             }
             return null;
         }
 
         public static bool buildsocket()
         {
+            try
+            {
+                socket.Dispose();
+            }
+            catch(Exception ex00)
+            {
+
+            }
+
             string localip = ipsearch();
             //string localip = "192.168.0.66";
             string ipString = Form2.sip;
@@ -96,7 +105,7 @@ namespace DataC
             IPAddress ip = IPAddress.Parse(ipString);//将ip转换为IPAddress
             IPAddress ipl = IPAddress.Parse(localip);
             IPEndPoint IPEPoint = new IPEndPoint(ip, port);//实例化IPEndPoint类
-            IPEndPoint IPlocal = new IPEndPoint(ipl, 8431);
+            IPEndPoint IPlocal = new IPEndPoint(ipl, 8432);
             //实例化Socket类以便用于远程连接主机
             socket = new Socket(IPEPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             socket.Bind(IPlocal);
@@ -122,24 +131,12 @@ namespace DataC
 
         public static bool socketsend(byte[] data)
         {
-            if (!socket.Connected)
+            if (!socketconnect())
                 return false;
 
             try
             {
-                //for(int j=0;j<48;j++)
-                //{
-                //    Console.Write(data[j]);
-                //    Console.Write(" ");
-                //}
-                //Console.Write(data[48]);
                 socket.Send(data);
-                //byte[] a = new byte[4248];
-                //for (int j=0;j<4248;j++)
-                //{
-                //    a[j] = 0x02;
-                //}
-                //socket.Send(a);
                 return true;
             }
             catch (Exception ex)
@@ -149,10 +146,17 @@ namespace DataC
             //return true;
         }
 
-        //public static bool socketconnect()
-        //{
-        //    return socket.Connected;
-        //}
-        
+        public static bool socketconnect()
+        {
+            try
+            {
+                return socket.Connected;
+            }
+            catch(Exception ex5)
+            {
+                return false;
+            }
+        }
+
     }
 }

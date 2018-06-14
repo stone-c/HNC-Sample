@@ -218,9 +218,10 @@
             // 
             // textBox4
             // 
+            this.textBox4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(124, 216);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(83, 21);
+            this.textBox4.Size = new System.Drawing.Size(83, 23);
             this.textBox4.TabIndex = 6;
             this.textBox4.Text = "40";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -228,9 +229,10 @@
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(124, 169);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(83, 21);
+            this.textBox3.Size = new System.Drawing.Size(83, 23);
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "90";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -238,9 +240,10 @@
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(124, 85);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(83, 21);
+            this.textBox2.Size = new System.Drawing.Size(83, 23);
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "40";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -248,9 +251,10 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(124, 40);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(83, 21);
+            this.textBox1.Size = new System.Drawing.Size(83, 23);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "50";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
