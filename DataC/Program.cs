@@ -17,7 +17,7 @@ namespace DataC
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Control.CheckForIllegalCrossThreadCalls = false;
-            Upload.buildsocket();
+            //Upload.buildsocket();
             Application.Run(new DataC());
         }
     }

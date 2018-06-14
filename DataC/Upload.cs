@@ -90,7 +90,8 @@ namespace DataC
         {
             string localip = ipsearch();
             //string localip = "192.168.0.66";
-            string ipString = "114.215.189.49";
+            string ipString = Form2.sip;
+            //string ipString = "114.215.189.49";
             Int32 port = 8431;//转换为int型
             IPAddress ip = IPAddress.Parse(ipString);//将ip转换为IPAddress
             IPAddress ipl = IPAddress.Parse(localip);
@@ -148,10 +149,10 @@ namespace DataC
             //return true;
         }
 
-        public static bool socketconnect()
-        {
-            return socket.Connected;
-        }
+        //public static bool socketconnect()
+        //{
+        //    return socket.Connected;
+        //}
         
     }
 }

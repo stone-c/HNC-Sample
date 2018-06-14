@@ -32,6 +32,7 @@ namespace DataC
         public static float pos_Z = 0;
         public static float pos_C = 0;
 
+        public static double drive_cur = 0.0;
         public static double speed_F = 0.0;
         public static double speed_S = 0.0;
 
@@ -227,6 +228,7 @@ namespace DataC
                 Api.HNC_ChannelGetValue(49, 0, 0, ref S_OVERRIDE);     // 主轴修调
                 Api.HNC_ChannelGetValue(50, 0, 0, ref R_OVERRIDE);     // 快移调修
                 Api.HNC_ChannelGetValue(25, 0, 0, ref estop);          // 急停
+                Api.HNC_AxisGetValue((Int32)HncAxis.HNC_AXIS_DRIVE_CUR, 0, ref drive_cur);
 
                 #region 接口数据转换
 
@@ -255,6 +257,9 @@ namespace DataC
 
                 byte[] E_STOP = BitConverter.GetBytes(estop);
                 lsdata.AddRange(E_STOP);
+
+                byte[] DRIVE_CUR = BitConverter.GetBytes(drive_cur);
+                lsdata.AddRange(DRIVE_CUR);
 
                 #endregion
 

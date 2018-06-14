@@ -146,7 +146,7 @@ namespace DataC
 
         private void DataC_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Upload.socket.Close();
+            Upload.socket.Disconnect(true);
         }
 
         private void start_button_Click(object sender, EventArgs e)

@@ -19,6 +19,8 @@ namespace DataC
         public static string ipr = null;
         public static ushort port = 0;
 
+        public static string sip = "114.215.189.49";
+
         public static int v_offset = 0;
         public static int v_length = 0;
         public static int s_offset = 0;
@@ -124,6 +126,25 @@ namespace DataC
             {
                 MessageBox.Show("请检查输入值：\n长度值应为偶数", "错误", MessageBoxButtons.OK);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!Upload.socket.Connected)
+            {
+                button2.Text = "断开";
+                Upload.buildsocket();
+            }
+            else
+            {
+                button2.Text = "连接";
+                Upload.socket.Disconnect(true);
+            }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            sip = textBox5.Text;
         }
 
         //private void Form2_FormClosed(object sender, FormClosedEventArgs e)
