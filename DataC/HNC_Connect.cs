@@ -36,7 +36,7 @@ namespace DataC
         public static double speed_S = 0.0;
 
         //public static int[] series_I;
-
+        private static int estop = 0;
         private static int cyc_ch = 0;
         private static int used_ch = 12;
         public static int cyc = 0;
@@ -45,6 +45,7 @@ namespace DataC
         public static int listnum = 0;
         public static int F_OVERRIDE = 0;
         public static int S_OVERRIDE = 0;
+        public static int R_OVERRIDE = 0;
         public static int v_len = 40;
         public static int s_len = 40;
 
@@ -224,8 +225,8 @@ namespace DataC
                 Api.HNC_ChannelGetValue(6, 0, 0, ref speed_F);         // 进给速度
                 Api.HNC_ChannelGetValue(9, 0, 0, ref F_OVERRIDE);      // 进给修调
                 Api.HNC_ChannelGetValue(49, 0, 0, ref S_OVERRIDE);     // 主轴修调
-
-                //Api.HNC_ChannelGetValue((Int32)HncChannel.HNC_CHAN_CYCLE, 16, 0, ref cyc);
+                Api.HNC_ChannelGetValue(50, 0, 0, ref R_OVERRIDE);     // 快移调修
+                Api.HNC_ChannelGetValue(25, 0, 0, ref estop);          // 急停
 
                 #region 接口数据转换
 
@@ -248,6 +249,12 @@ namespace DataC
 
                 byte[] S_OVERRIDE1 = BitConverter.GetBytes(F_OVERRIDE);
                 lsdata.AddRange(S_OVERRIDE1);
+
+                byte[] R_OVERRIDE1 = BitConverter.GetBytes(R_OVERRIDE);
+                lsdata.AddRange(R_OVERRIDE1);
+
+                byte[] E_STOP = BitConverter.GetBytes(estop);
+                lsdata.AddRange(E_STOP);
 
                 #endregion
 
@@ -285,12 +292,12 @@ namespace DataC
                 //Console.WriteLine("运行测试2：");
                 if ((m_datatemp == null) || (m_datatemp.Count == 0))
                 {
-                    Console.WriteLine("运行测试3：未得到数据");
+                    //Console.WriteLine("运行测试3：未得到数据");
                     QueryPerformanceCounter(ref stop_time);
                     getdata.ReleaseMutex();
                     continue;
                 }
-                Console.WriteLine("运行测试3：已得到数据");
+                //Console.WriteLine("运行测试3：已得到数据");
                 m_listData = m_datatemp;
 
                 int chnum = m_datatemp.Count;
@@ -582,9 +589,9 @@ namespace DataC
 
                 QueryPerformanceCounter(ref stop_time);
 
-                Console.WriteLine("通道数目" + chnum.ToString());
-                Console.WriteLine("数据长度" + dataplist.ToString());
-                Console.WriteLine("使用时间 " + ((stop_time - start_time) / count_per_millsec).ToString());
+                //Console.WriteLine("通道数目" + chnum.ToString());
+                //Console.WriteLine("数据长度" + dataplist.ToString());
+                //Console.WriteLine("使用时间 " + ((stop_time - start_time) / count_per_millsec).ToString());
             }
         }
 

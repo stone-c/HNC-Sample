@@ -51,7 +51,7 @@ namespace DataC
                         {
                             //判断是否为ipv4
                             ethip = ipadd.Address.ToString();
-                            Console.WriteLine(ethip);
+                            //Console.WriteLine(ethip);
                             if (ethip.StartsWith("10"))
                             {
                                 return ethip;
