@@ -48,7 +48,7 @@ namespace DataC
         private void DataC_Load(object sender, EventArgs e)
         {
 
-            #region Series
+            #region Series Init
 
             S1 = new Series("V");
             S1.ChartType = SeriesChartType.Line;
@@ -65,9 +65,9 @@ namespace DataC
 
             for (int i = 0; i < 1000; i++)
             {
-                S1.Points.AddXY(i / 10.0, 0);
-                S2.Points.AddXY(i / 10.0, 0);
-                S3.Points.AddXY(i / 10.0, 0);
+                S1.Points.AddXY(i , 0);
+                S2.Points.AddXY(i , 0);
+                S3.Points.AddXY(i , 0);
             }
 
             this.chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.FromArgb(112, 255, 255, 255);
@@ -94,6 +94,9 @@ namespace DataC
             //chart3.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
             //chart3.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
             chart3.ChartAreas[0].BackColor = Color.FromArgb(255, 0, 144, 208);
+            //chart1.ChartAreas[0].AxisY.MaximumAutoSize = 1;
+            //chart2.ChartAreas[0].AxisY.MaximumAutoSize = 1;
+            //chart3.ChartAreas[0].AxisY.MaximumAutoSize = 1;
             this.chart3.ChartAreas[0].AxisY.Maximum = 10000.0 * 0.1;
             this.chart3.ChartAreas[0].AxisY.Minimum = -10000.0 * 0.1;
 
@@ -191,7 +194,7 @@ namespace DataC
                 label3.Text = "采样已就绪";
                 label3.ForeColor = Color.Green;
             }
-            else if(HNC_Connect.issmpl)
+            else if (HNC_Connect.issmpl)
             {
                 label3.Text = "采样进行中";
                 label3.ForeColor = Color.Green;
@@ -237,8 +240,9 @@ namespace DataC
                 C_label.Text = "C  " + HNC_Connect.pos_C.ToString("000.000") + "  deg";
                 F_label.Text = "F  " + HNC_Connect.speed_F.ToString("0000") + "  mm/min";
                 S_label.Text = "S  " + HNC_Connect.speed_S.ToString("0000") + "  rpm";
-                label1.Text = "主轴倍率： " + HNC_Connect.S_OVERRIDE.ToString() + " %";
-                label2.Text = "进给倍率： " + HNC_Connect.F_OVERRIDE.ToString() + " %";
+                label1.Text = HNC_Connect.S_OVERRIDE.ToString() + " %";
+                label2.Text = HNC_Connect.F_OVERRIDE.ToString() + " %";
+                label4.Text = "当前程序： " + HNC_Connect.portn;
 
                 HNC_Connect.getdata.ReleaseMutex();
 
@@ -272,24 +276,26 @@ namespace DataC
 
                     S3.Color = Color.FromArgb(255, 255, 255, 0);
 
+
+                    if (max_i >= 0)
+                    {
+                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
+                    }
+                    else
+                    {
+                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
+                    }
+                    if (min_i >= 0)
+                    {
+                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
+                    }
+                    else
+                    {
+                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
+                    }
+
                     chart3.Series.Add(S3);
 
-                    //if (max_i >= 0)
-                    //{
-                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
-                    //}
-                    //else
-                    //{
-                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
-                    //}
-                    //if (min_i >= 0)
-                    //{
-                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
-                    //}
-                    //else
-                    //{
-                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
-                    //}
                     //chart3.ChartAreas[0].AxisY.Minimum = 10;
                     //chart3.ChartAreas[0].AxisY.Maximum = 10;
                     //chart3.ChartAreas[0].AxisY.Maximum = axis_i.Max() * 1.2;
@@ -379,7 +385,7 @@ namespace DataC
                 int min_v = v_temp.Min();
                 int min_s = s_temp.Min();
 
-                for (int k2=0;k2<1000;k2++)
+                for (int k2 = 0; k2 < 1000; k2++)
                 {
                     S1.Points.AddXY(k2, s_temp[k2]);
                     S2.Points.AddXY(k2, v_temp[k2]);
@@ -392,44 +398,42 @@ namespace DataC
                 //}
                 //Console.WriteLine("vs点数" + dag_len.ToString());
 
+                if (max_v >= 0)
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                }
+                else
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                }
+                if (min_v >= 0)
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                }
+                else
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                }
+
+                if (max_s >= 0)
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                }
+                else
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                }
+                if (min_s >= 0)
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                }
+                else
+                {
+                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                }
+
                 chart1.Series.Add(S1);
                 chart2.Series.Add(S2);
-
-
-                //if (max_v >= 0)
-                //{
-                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
-                //}
-                //else
-                //{
-                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
-                //}
-                //if (min_v >= 0)
-                //{
-                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
-                //}
-                //else
-                //{
-                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
-                //}
-
-                //if (max_s >= 0)
-                //{
-                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
-                //}
-                //else
-                //{
-                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
-                //}
-                //if (min_s >= 0)
-                //{
-                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
-                //}
-                //else
-                //{
-                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
-                //}
-
 
                 //if (counter <= 4)
                 //{
@@ -484,7 +488,7 @@ namespace DataC
                 gcode_counter++;
             }
             gcode_lines = gcode_counter;
-            
+
             if (listBox1.Items.Count != gcode_counter)
             {
                 return false;
@@ -556,7 +560,7 @@ namespace DataC
                     pack.AddRange(HNC_Connect.data2byte(i_temp));
                     pack.AddRange(HNC_Connect.data2byte(v_temp));
                     pack.AddRange(HNC_Connect.data2byte(s_temp));
-                    
+
                     Upload.socketsend(pack.ToArray());
                     //Console.WriteLine("发送数据"+counter.ToString());
 
@@ -568,7 +572,7 @@ namespace DataC
                 start_time = now_time;
 
                 //Upload.socketsend(HNC_Connect.datatemp[3].ToArray());
-                
+
             }
         }
     }

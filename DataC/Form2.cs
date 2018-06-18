@@ -25,6 +25,7 @@ namespace DataC
         public static int v_length = 0;
         public static int s_offset = 0;
         public static int s_length = 0;
+        public static int local_port = 8432;
 
         System.Timers.Timer form_timer;
 
@@ -138,7 +139,7 @@ namespace DataC
                     Upload.buildsocket();
                     button2.Text = "断  开";
                 }
-                catch(Exception ex6)
+                catch (Exception ex6)
                 {
                     //Upload.socket.r
                 }
@@ -154,6 +155,11 @@ namespace DataC
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             sip = textBox5.Text;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            local_port = Convert.ToInt32(textBox6.Text);
         }
 
         //private void Form2_FormClosed(object sender, FormClosedEventArgs e)

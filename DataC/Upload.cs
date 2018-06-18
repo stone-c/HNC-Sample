@@ -92,7 +92,7 @@ namespace DataC
             {
                 socket.Dispose();
             }
-            catch(Exception ex00)
+            catch (Exception ex00)
             {
 
             }
@@ -102,10 +102,11 @@ namespace DataC
             string ipString = Form2.sip;
             //string ipString = "114.215.189.49";
             Int32 port = 8431;//转换为int型
+            Int32 lport = Form2.local_port;
             IPAddress ip = IPAddress.Parse(ipString);//将ip转换为IPAddress
             IPAddress ipl = IPAddress.Parse(localip);
             IPEndPoint IPEPoint = new IPEndPoint(ip, port);//实例化IPEndPoint类
-            IPEndPoint IPlocal = new IPEndPoint(ipl, 8432);
+            IPEndPoint IPlocal = new IPEndPoint(ipl, lport);
             //实例化Socket类以便用于远程连接主机
             socket = new Socket(IPEPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             socket.Bind(IPlocal);
@@ -113,7 +114,7 @@ namespace DataC
             {
                 socket.Connect(IPEPoint);
             }
-            catch(Exception ex1)
+            catch (Exception ex1)
             {
                 MessageBox.Show(ex1.Message);
             }
@@ -152,7 +153,7 @@ namespace DataC
             {
                 return socket.Connected;
             }
-            catch(Exception ex5)
+            catch (Exception ex5)
             {
                 return false;
             }

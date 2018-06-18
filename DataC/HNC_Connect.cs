@@ -308,7 +308,7 @@ namespace DataC
                 m_listData = m_datatemp;
 
                 int chnum = m_datatemp.Count;
-                
+
 
                 List<Int32>[] tmp = m_listData.ToArray();
 
@@ -363,8 +363,15 @@ namespace DataC
 
                 //List<byte>[] i_byte = new List<byte>[4];
                 //Queue<Int32> i_que = new Queue<Int32>();
-                
-                for (int l=0;l<series_I.Length;l++)
+
+                if (i_que.Count > 1000)
+                    i_que.Clear();
+                if (v_que.Count > 10000)
+                    v_que.Clear();
+                if (s_que.Count > 10000)
+                    s_que.Clear();
+
+                for (int l = 0; l < series_I.Length; l++)
                 {
                     i_que.Enqueue(series_I[l]);
                 }
@@ -492,14 +499,14 @@ namespace DataC
 
                 }
 
-                int a2 = v_que.Count;
-              
-                if (i_que.Count > 1000)
-                    i_que.Clear();
-                if (v_que.Count > 10000)
-                    v_que.Clear();
-                if (s_que.Count > 10000)
-                    s_que.Clear();
+                //int a2 = v_que.Count;
+
+                //if (i_que.Count > 1000)
+                //    i_que.Clear();
+                //if (v_que.Count > 10000)
+                //    v_que.Clear();
+                //if (s_que.Count > 10000)
+                //    s_que.Clear();
                 //for (int j = 0; j < listc; j++)
                 //{
                 //    for (int m = 0; m < s_len / 4; m++)
@@ -602,17 +609,17 @@ namespace DataC
             }
         }
 
-        public static bool smplset_f()
-        {
-            //Api.HNC_SamplSetChannel(0, 102, 0, 4, 4);
-            //Api.HNC_SamplSetChannel(0, 1, 0, 0, 0);          // X轴位置
-            //Api.HNC_SamplSetChannel(1, 1, 1, 0, 0);          // Y轴位置
-            //Api.HNC_SamplSetChannel(2, 1, 2, 0, 0);          // Z轴位置
-            //Api.HNC_SamplSetChannel(3, 1, 5, 0, 0);          // C轴位置
-            //Api.HNC_SamplSetChannel(4, 6, 0, 4, 4);          // 主轴电流
+        //public static bool smplset_f()
+        //{
+        //    //Api.HNC_SamplSetChannel(0, 102, 0, 4, 4);
+        //    //Api.HNC_SamplSetChannel(0, 1, 0, 0, 0);          // X轴位置
+        //    //Api.HNC_SamplSetChannel(1, 1, 1, 0, 0);          // Y轴位置
+        //    //Api.HNC_SamplSetChannel(2, 1, 2, 0, 0);          // Z轴位置
+        //    //Api.HNC_SamplSetChannel(3, 1, 5, 0, 0);          // C轴位置
+        //    //Api.HNC_SamplSetChannel(4, 6, 0, 4, 4);          // 主轴电流
 
-            return true;
-        }
+        //    return true;
+        //}
 
         public static bool smplset(int offset, int length)
         {
@@ -661,12 +668,12 @@ namespace DataC
         public static void smplperiod()
         {
             Api.HNC_SamplSetPeriod(1);
-            //Api.HNC_SamplSetChannel(1,(Int32)HncSampleType.)
+
             Api.HNC_SamplSetChannel(1, (Int32)HncSampleType.SAMPL_CMD_POS, 0, 0, 0);           // X指令位置
             Api.HNC_SamplSetChannel(2, (Int32)HncSampleType.SAMPL_CMD_POS, 1, 0, 0);           // Y指令位置
             Api.HNC_SamplSetChannel(3, (Int32)HncSampleType.SAMPL_CMD_POS, 2, 0, 0);           // Z指令位置
-            Api.HNC_SamplSetChannel(4, (Int32)HncSampleType.SAMPL_CMD_POS, 5, 0, 0);          // C指令位置
-            Api.HNC_SamplSetChannel(5, (Int32)HncSampleType.SAMPL_ACT_TRQ, 5, 0, 0);          // I主轴电流
+            Api.HNC_SamplSetChannel(4, (Int32)HncSampleType.SAMPL_CMD_POS, 5, 0, 0);           // C指令位置
+            Api.HNC_SamplSetChannel(5, (Int32)HncSampleType.SAMPL_ACT_TRQ, 5, 0, 0);           // I主轴电流
         }
 
         public static bool smplon()
@@ -788,10 +795,15 @@ namespace DataC
             return ret;
         }
 
+        /// <summary>
+        /// Int32[]型数组转byte[]数组
+        /// </summary>
+        /// <param name="data">要转换的Int32[]数组</param>
+        /// <returns></returns>
         public static byte[] data2byte(int[] data)
         {
             List<byte> temp1 = new List<byte>();
-            for(int h = 0; h < data.Length; h++)
+            for (int h = 0; h < data.Length; h++)
             {
                 //byte[] a = BitConverter.GetBytes(data[h]);
                 temp1.AddRange(BitConverter.GetBytes(data[h]));
@@ -800,6 +812,11 @@ namespace DataC
             return temp;
         }
 
+        /// <summary>
+        /// Int16[]型数组转byte[]数组
+        /// </summary>
+        /// <param name="data">要转换的Int16[]数组</param>
+        /// <returns></returns>
         public static byte[] data2byte(Int16[] data)
         {
             List<byte> temp1 = new List<byte>();
@@ -819,7 +836,7 @@ namespace DataC
             {
                 uploadSocket.Disconnect(true);
             }
-            catch(Exception exn)
+            catch (Exception exn)
             {
 
             }
