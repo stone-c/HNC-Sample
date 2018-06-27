@@ -136,40 +136,40 @@ namespace DataC
             // X_label
             // 
             this.X_label.AutoSize = true;
-            this.X_label.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.X_label.Location = new System.Drawing.Point(25, 18);
+            this.X_label.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.X_label.Location = new System.Drawing.Point(53, 34);
             this.X_label.Name = "X_label";
-            this.X_label.Size = new System.Drawing.Size(300, 53);
+            this.X_label.Size = new System.Drawing.Size(242, 42);
             this.X_label.TabIndex = 6;
             this.X_label.Text = "X  000.000  mm";
             // 
             // Y_label
             // 
             this.Y_label.AutoSize = true;
-            this.Y_label.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Y_label.Location = new System.Drawing.Point(26, 77);
+            this.Y_label.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Y_label.Location = new System.Drawing.Point(54, 93);
             this.Y_label.Name = "Y_label";
-            this.Y_label.Size = new System.Drawing.Size(298, 53);
+            this.Y_label.Size = new System.Drawing.Size(241, 42);
             this.Y_label.TabIndex = 7;
             this.Y_label.Text = "Y  000.000  mm";
             // 
             // Z_label
             // 
             this.Z_label.AutoSize = true;
-            this.Z_label.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Z_label.Location = new System.Drawing.Point(28, 140);
+            this.Z_label.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Z_label.Location = new System.Drawing.Point(56, 156);
             this.Z_label.Name = "Z_label";
-            this.Z_label.Size = new System.Drawing.Size(297, 53);
+            this.Z_label.Size = new System.Drawing.Size(240, 42);
             this.Z_label.TabIndex = 8;
             this.Z_label.Text = "Z  000.000  mm";
             // 
             // C_label
             // 
             this.C_label.AutoSize = true;
-            this.C_label.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.C_label.Location = new System.Drawing.Point(26, 209);
+            this.C_label.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.C_label.Location = new System.Drawing.Point(54, 225);
             this.C_label.Name = "C_label";
-            this.C_label.Size = new System.Drawing.Size(294, 53);
+            this.C_label.Size = new System.Drawing.Size(240, 42);
             this.C_label.TabIndex = 9;
             this.C_label.Text = "C  000.000  deg";
             // 

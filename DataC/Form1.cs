@@ -77,12 +77,8 @@ namespace DataC
             //chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
             this.chart1.ChartAreas[0].AxisX.Maximum = 1000;
             this.chart1.ChartAreas[0].AxisX.Minimum = 0;
-            this.chart1.ChartAreas[0].AxisY.Maximum = 1500 * 0.1;
-            this.chart1.ChartAreas[0].AxisY.Minimum = -1500 * 0.1;
             this.chart2.ChartAreas[0].AxisX.Maximum = 1000;
             this.chart2.ChartAreas[0].AxisX.Minimum = 0;
-            this.chart2.ChartAreas[0].AxisY.Maximum = 1500 * 0.1;
-            this.chart2.ChartAreas[0].AxisY.Minimum = -1500 * 0.1;
             chart1.ChartAreas[0].AxisX.IntervalOffset = 0.10D;
             this.chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.FromArgb(112, 255, 255, 255);
             this.chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.FromArgb(112, 255, 255, 255);
@@ -97,22 +93,33 @@ namespace DataC
             //chart1.ChartAreas[0].AxisY.MaximumAutoSize = 1;
             //chart2.ChartAreas[0].AxisY.MaximumAutoSize = 1;
             //chart3.ChartAreas[0].AxisY.MaximumAutoSize = 1;
+
+            //this.chart1.ChartAreas[0].AxisY.Maximum = 1500 * 0.1;
+            //this.chart1.ChartAreas[0].AxisY.Minimum = -500 * 0.1;
+            //this.chart2.ChartAreas[0].AxisY.Maximum = 1500 * 0.1;
+            //this.chart2.ChartAreas[0].AxisY.Minimum = -500 * 0.1;
+            //this.chart3.ChartAreas[0].AxisY.Maximum = 10000.0 * 0.1;
+            //this.chart3.ChartAreas[0].AxisY.Minimum = -10000.0 * 0.1;
+            this.chart1.ChartAreas[0].AxisY.Maximum = 50 * 0.1;
+            this.chart1.ChartAreas[0].AxisY.Minimum = -50 * 0.1;
+            this.chart2.ChartAreas[0].AxisY.Maximum = 50 * 0.1;
+            this.chart2.ChartAreas[0].AxisY.Minimum = -50 * 0.1;
             this.chart3.ChartAreas[0].AxisY.Maximum = 10000.0 * 0.1;
             this.chart3.ChartAreas[0].AxisY.Minimum = -10000.0 * 0.1;
 
-            chart1.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
-            chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
-            chart2.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
-            chart2.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
-            chart3.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
-            chart3.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
+            //chart1.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
+            //chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
+            //chart2.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
+            //chart2.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
+            //chart3.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
+            //chart3.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
 
-            //chart1.ChartAreas[0].AxisX.Enabled = AxisEnabled.False;
-            //chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
-            //chart2.ChartAreas[0].AxisX.Enabled = AxisEnabled.False;
-            //chart2.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
-            //chart3.ChartAreas[0].AxisX.Enabled = AxisEnabled.False;
-            //chart3.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
+            chart1.ChartAreas[0].AxisX.Enabled = AxisEnabled.False;
+            chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
+            chart2.ChartAreas[0].AxisX.Enabled = AxisEnabled.False;
+            chart2.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
+            chart3.ChartAreas[0].AxisX.Enabled = AxisEnabled.False;
+            chart3.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
 
             chart1.Series.Add(S1);
             chart2.Series.Add(S2);
@@ -277,22 +284,22 @@ namespace DataC
                     S3.Color = Color.FromArgb(255, 255, 255, 0);
 
 
-                    if (max_i >= 0)
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
-                    }
-                    else
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
-                    }
-                    if (min_i >= 0)
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
-                    }
-                    else
-                    {
-                        chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
-                    }
+                    //if (max_i >= 0)
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
+                    //}
+                    //else
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
+                    //}
+                    //if (min_i >= 0)
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 0.9;
+                    //}
+                    //else
+                    //{
+                    //    chart3.ChartAreas[0].AxisY.Maximum = max_i * 1.1;
+                    //}
 
                     chart3.Series.Add(S3);
 
@@ -387,8 +394,10 @@ namespace DataC
 
                 for (int k2 = 0; k2 < 1000; k2++)
                 {
-                    S1.Points.AddXY(k2, s_temp[k2]);
-                    S2.Points.AddXY(k2, v_temp[k2]);
+                    S1.Points.AddXY(k2, s_temp[k2] / 32767.0 * 5.0);
+                    S2.Points.AddXY(k2, v_temp[k2] / 32767.0 * 5.0);
+                    //S1.Points.AddXY(k2, s_temp[k2]);
+                    //S2.Points.AddXY(k2, v_temp[k2]);
                 }
 
                 //for (int k2 = dag_len * counter; k2 < dag_len * (counter + 1); k2++)
@@ -398,39 +407,39 @@ namespace DataC
                 //}
                 //Console.WriteLine("vs点数" + dag_len.ToString());
 
-                if (max_v >= 0)
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
-                }
-                else
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
-                }
-                if (min_v >= 0)
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
-                }
-                else
-                {
-                    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
-                }
+                //if (max_v >= 0)
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                //}
+                //else
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                //}
+                //if (min_v >= 0)
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 0.9;
+                //}
+                //else
+                //{
+                //    chart1.ChartAreas[0].AxisY.Maximum = max_v * 1.1;
+                //}
 
-                if (max_s >= 0)
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
-                }
-                else
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
-                }
-                if (min_s >= 0)
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
-                }
-                else
-                {
-                    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
-                }
+                //if (max_s >= 0)
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                //}
+                //else
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                //}
+                //if (min_s >= 0)
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 0.9;
+                //}
+                //else
+                //{
+                //    chart2.ChartAreas[0].AxisY.Maximum = max_s * 1.1;
+                //}
 
                 chart1.Series.Add(S1);
                 chart2.Series.Add(S2);
