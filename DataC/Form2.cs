@@ -162,6 +162,16 @@ namespace DataC
             local_port = Convert.ToInt32(textBox6.Text);
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form sp = new Form3();
+            button3.Enabled = false;
+            label12.Text = "视频上传中...";
+            label12.ForeColor = Color.Green;
+            //button3.Text = "已打开";
+            //sp.Visible = true;
+        }
+
         //private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         //{
         //    this.Visible = false;

@@ -37,6 +37,15 @@
             this.port_textBox = new System.Windows.Forms.TextBox();
             this.remote_textBox = new System.Windows.Forms.TextBox();
             this.local_textBox = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,23 +58,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cfirm_button = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(9, 10);
             this.tabControl1.Name = "tabControl1";
@@ -92,11 +97,12 @@
             // 
             // connect_button
             // 
-            this.connect_button.Location = new System.Drawing.Point(164, 262);
+            this.connect_button.Font = new System.Drawing.Font("华文细黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.connect_button.Location = new System.Drawing.Point(164, 249);
             this.connect_button.Name = "connect_button";
-            this.connect_button.Size = new System.Drawing.Size(87, 23);
+            this.connect_button.Size = new System.Drawing.Size(87, 36);
             this.connect_button.TabIndex = 6;
-            this.connect_button.Text = "连  接";
+            this.connect_button.Text = "连 接";
             this.connect_button.UseVisualStyleBackColor = true;
             this.connect_button.Click += new System.EventHandler(this.connect_button_Click);
             // 
@@ -159,6 +165,108 @@
             this.local_textBox.TabIndex = 0;
             this.local_textBox.Text = "localhost";
             this.local_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textBox6);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.textBox5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(262, 295);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "服务器连接";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(47, 195);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(173, 23);
+            this.textBox6.TabIndex = 9;
+            this.textBox6.Text = "8432";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(6, 154);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 22);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "本地端口：";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("华文细黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(164, 249);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 36);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "连  接";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(6, 38);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 22);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "服务器ip：";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(47, 83);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(173, 23);
+            this.textBox5.TabIndex = 2;
+            this.textBox5.Text = "114.215.189.49";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label12);
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(262, 295);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "视频采样";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("微软雅黑", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(41, 119);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(178, 42);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "视频未上传";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("华文细黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(163, 249);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(87, 36);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "打  开";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // tabPage2
             // 
@@ -287,96 +395,31 @@
             // 
             // cfirm_button
             // 
-            this.cfirm_button.Location = new System.Drawing.Point(164, 262);
+            this.cfirm_button.Font = new System.Drawing.Font("华文细黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cfirm_button.Location = new System.Drawing.Point(164, 257);
             this.cfirm_button.Name = "cfirm_button";
-            this.cfirm_button.Size = new System.Drawing.Size(87, 23);
+            this.cfirm_button.Size = new System.Drawing.Size(87, 33);
             this.cfirm_button.TabIndex = 0;
             this.cfirm_button.Text = "确  定";
             this.cfirm_button.UseVisualStyleBackColor = true;
             this.cfirm_button.Click += new System.EventHandler(this.cfirm_button_Click);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.textBox6);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.textBox5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(262, 295);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "服务器连接";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(164, 262);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "连  接";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(6, 38);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 22);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "服务器ip：";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(47, 83);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(173, 23);
-            this.textBox5.TabIndex = 2;
-            this.textBox5.Text = "114.215.189.49";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(177, 339);
+            this.button1.Font = new System.Drawing.Font("华文细黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(177, 333);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 20);
+            this.button1.Size = new System.Drawing.Size(87, 34);
             this.button1.TabIndex = 1;
-            this.button1.Text = "取  消";
+            this.button1.Text = "取 消";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(6, 154);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 22);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "本地端口：";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(47, 195);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(173, 23);
-            this.textBox6.TabIndex = 9;
-            this.textBox6.Text = "8432";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 371);
+            this.ClientSize = new System.Drawing.Size(291, 372);
             this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
@@ -388,10 +431,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +471,8 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label12;
     }
 }

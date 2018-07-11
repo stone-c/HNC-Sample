@@ -88,6 +88,8 @@ namespace DataC
         public static Queue<Int16> s_que = new Queue<short>();
 
         private static Socket uploadSocket;
+
+        private static Random rd = new Random();
         //public static List<List<Int32>> m_listData = new List<List<int>>();
         //public static List<Int32>[] tmp = new List<Int32>[32];
         //public static int[,] datas = new int[25, 250];

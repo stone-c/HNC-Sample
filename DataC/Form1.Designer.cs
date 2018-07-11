@@ -66,12 +66,12 @@ namespace DataC
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(357, 105);
+            this.chart1.Location = new System.Drawing.Point(357, 106);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(440, 116);
+            this.chart1.Size = new System.Drawing.Size(440, 131);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -79,12 +79,12 @@ namespace DataC
             // 
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
-            this.chart2.Location = new System.Drawing.Point(357, 243);
+            this.chart2.Location = new System.Drawing.Point(357, 239);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(440, 116);
+            this.chart2.Size = new System.Drawing.Size(440, 131);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
             // 
@@ -92,12 +92,12 @@ namespace DataC
             // 
             chartArea3.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea3);
-            this.chart3.Location = new System.Drawing.Point(357, 381);
+            this.chart3.Location = new System.Drawing.Point(357, 374);
             this.chart3.Name = "chart3";
             series3.ChartArea = "ChartArea1";
             series3.Name = "Series1";
             this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(440, 116);
+            this.chart3.Size = new System.Drawing.Size(440, 131);
             this.chart3.TabIndex = 2;
             this.chart3.Text = "chart3";
             // 
@@ -115,9 +115,10 @@ namespace DataC
             // 
             // setting_button
             // 
-            this.setting_button.Location = new System.Drawing.Point(537, 507);
+            this.setting_button.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.setting_button.Location = new System.Drawing.Point(537, 510);
             this.setting_button.Name = "setting_button";
-            this.setting_button.Size = new System.Drawing.Size(102, 30);
+            this.setting_button.Size = new System.Drawing.Size(102, 54);
             this.setting_button.TabIndex = 4;
             this.setting_button.Text = "设  置";
             this.setting_button.UseVisualStyleBackColor = true;
@@ -125,9 +126,10 @@ namespace DataC
             // 
             // start_button
             // 
-            this.start_button.Location = new System.Drawing.Point(695, 507);
+            this.start_button.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.start_button.Location = new System.Drawing.Point(695, 510);
             this.start_button.Name = "start_button";
-            this.start_button.Size = new System.Drawing.Size(102, 30);
+            this.start_button.Size = new System.Drawing.Size(102, 54);
             this.start_button.TabIndex = 5;
             this.start_button.Text = "开始采样";
             this.start_button.UseVisualStyleBackColor = true;
@@ -218,7 +220,7 @@ namespace DataC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(20, 507);
+            this.label3.Location = new System.Drawing.Point(12, 527);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 22);
             this.label3.TabIndex = 14;
@@ -256,7 +258,7 @@ namespace DataC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 548);
+            this.ClientSize = new System.Drawing.Size(813, 573);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

@@ -40,6 +40,8 @@ namespace DataC
 
         private static Thread senddata;
 
+        private static Random rd = new Random();
+
         public DataC()
         {
             InitializeComponent();
@@ -65,9 +67,9 @@ namespace DataC
 
             for (int i = 0; i < 1000; i++)
             {
-                S1.Points.AddXY(i , 0);
-                S2.Points.AddXY(i , 0);
-                S3.Points.AddXY(i , 0);
+                S1.Points.AddXY(i, 0);
+                S2.Points.AddXY(i, 0);
+                S3.Points.AddXY(i, 0);
             }
 
             this.chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.FromArgb(112, 255, 255, 255);
@@ -98,14 +100,14 @@ namespace DataC
             //this.chart1.ChartAreas[0].AxisY.Minimum = -500 * 0.1;
             //this.chart2.ChartAreas[0].AxisY.Maximum = 1500 * 0.1;
             //this.chart2.ChartAreas[0].AxisY.Minimum = -500 * 0.1;
-            //this.chart3.ChartAreas[0].AxisY.Maximum = 10000.0 * 0.1;
-            //this.chart3.ChartAreas[0].AxisY.Minimum = -10000.0 * 0.1;
+            this.chart3.ChartAreas[0].AxisY.Maximum = 50 * 0.1;
+            this.chart3.ChartAreas[0].AxisY.Minimum = -50 * 0.1;
             this.chart1.ChartAreas[0].AxisY.Maximum = 50 * 0.1;
             this.chart1.ChartAreas[0].AxisY.Minimum = -50 * 0.1;
             this.chart2.ChartAreas[0].AxisY.Maximum = 50 * 0.1;
             this.chart2.ChartAreas[0].AxisY.Minimum = -50 * 0.1;
-            this.chart3.ChartAreas[0].AxisY.Maximum = 10000.0 * 0.1;
-            this.chart3.ChartAreas[0].AxisY.Minimum = -10000.0 * 0.1;
+            //this.chart3.ChartAreas[0].AxisY.Maximum = 10000.0 * 0.1;
+            //this.chart3.ChartAreas[0].AxisY.Minimum = -10000.0 * 0.1;
 
             //chart1.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
             //chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
@@ -161,6 +163,15 @@ namespace DataC
 
         private void start_button_Click(object sender, EventArgs e)
         {
+            if (!HNC_Connect.iscon)
+            {
+
+            }
+            else if (HNC_Connect.iscon && (!HNC_Connect.smplseted))
+            {
+
+            }
+
             HNC_Connect.smplon();
         }
 
@@ -206,6 +217,7 @@ namespace DataC
                 label3.Text = "采样进行中";
                 label3.ForeColor = Color.Green;
             }
+
             if (HNC_Connect.cyc == 1)
             {
                 label3.Text = "循环已启动";
@@ -273,7 +285,10 @@ namespace DataC
 
                     for (int k1 = 0; k1 < 50; k1++)
                     {
-                        S3.Points.AddXY(k1, i_temp[k1]);
+                        //S3.Points.AddXY(k1, rd.Next(-1000, 1000));
+                        //S3.Points.AddXY(k1, i_temp[k1]);
+                        double i_now = i_temp[k1] / 32767.0 * 5.0;
+                        S3.Points.AddXY(k1, i_now);
                     }
                     //for (int k1 = 0; k1 < i_len; k1++)
                     //{
@@ -394,10 +409,17 @@ namespace DataC
 
                 for (int k2 = 0; k2 < 1000; k2++)
                 {
-                    S1.Points.AddXY(k2, s_temp[k2] / 32767.0 * 5.0);
-                    S2.Points.AddXY(k2, v_temp[k2] / 32767.0 * 5.0);
+                    //S1.Points.AddXY(k2, rd.Next(-1000, 1000));
+                    //S2.Points.AddXY(k2, rd.Next(-1000, 1000));
+
                     //S1.Points.AddXY(k2, s_temp[k2]);
                     //S2.Points.AddXY(k2, v_temp[k2]);
+
+                    double s_now = s_temp[k2] / 32767.0 * 5.0;
+                    double v_now = v_temp[k2] / 32767.0 * 5.0;
+
+                    S1.Points.AddXY(k2, s_now);
+                    S2.Points.AddXY(k2, v_now);
                 }
 
                 //for (int k2 = dag_len * counter; k2 < dag_len * (counter + 1); k2++)
